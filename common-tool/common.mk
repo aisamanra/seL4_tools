@@ -141,9 +141,6 @@ LDFLAGS += $(NK_LDFLAGS) \
 		   $(ENDGROUP) \
 		   $(CFLAGS) \
 		   -static -nostdlib
-ifeq (${CONFIG_USE_RUST},y)
- LDFLAGS += -lcompiler-rt
-endif
 
 ARCHIVES += $(LIBS:%=lib%.a)
 
