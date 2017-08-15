@@ -280,13 +280,13 @@ common: setup
 	$(Q)mkdir -p $(STAGE_BASE)/$@
 	$(Q)cp -R $(TOOLS_ROOT)/$@/* $(STAGE_BASE)/$@
 
-PHONY += rust_sysroot
-rust_sysroot: common $(libc) $(RUNONCE)
-	@echo "[RUST] Building std libs"
-	$(Q)cat $(STAGE_BASE)/common/custom-target.json | envsubst > ${RUST_TARGET_FILE}
-	$(Q)cat $(TOOLS_ROOT)/common/sysroot.toml | envsubst > $(STAGE_BASE)/common/sysroot.toml
-	$(Q)cd $(STAGE_BASE)/common/ && RUST_TARGET_PATH=${STAGE_BASE}/common/ \
-	$(XARGO) sysroot $(RUST_CARGO_FLAGS) --target=${RUST_CUSTOM_TARGET}
+# PHONY += rust_sysroot
+# rust_sysroot: common $(libc) $(RUNONCE)
+# 	@echo "[RUST] Building std libs"
+# 	$(Q)cat $(STAGE_BASE)/common/custom-target.json | envsubst > ${RUST_TARGET_FILE}
+# 	$(Q)cat $(TOOLS_ROOT)/common/sysroot.toml | envsubst > $(STAGE_BASE)/common/sysroot.toml
+# 	$(Q)cd $(STAGE_BASE)/common/ && RUST_TARGET_PATH=${STAGE_BASE}/common/ \
+# 	$(XARGO) sysroot $(RUST_CARGO_FLAGS) --target=${RUST_CUSTOM_TARGET}
 
 export SEL4_COMMON=$(STAGE_BASE)/common
 
