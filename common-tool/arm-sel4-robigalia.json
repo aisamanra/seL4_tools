@@ -3,6 +3,7 @@
     "llvm-target": "arm-linux-gnueabihf",
     "target-endian": "little",
     "target-pointer-width": "32",
+    "target-c-int-width": "32",
     "os": "sel4",
     "env": "robigalia",
     "arch": "arm",
